@@ -1,0 +1,44 @@
+diff --git a/app.config.ts b/app.config.ts
+index c427a04..a7da0f1 100644
+--- a/app.config.ts
++++ b/app.config.ts
+@@ -170,6 +170,7 @@ export default {
+         },
+       ],
+       "@getpapillon/papillonkit",
++      "@bacons/apple-targets",
+       "./plugins/with-ios-native-files",
+       "./plugins/with-android-gradle-properties-newline",
+     ],
+diff --git a/app/_layout.tsx b/app/_layout.tsx
+index 8481193..4785cf9 100644
+--- a/app/_layout.tsx
++++ b/app/_layout.tsx
+@@ -14,6 +14,7 @@ import { useNetworkStore } from '@/stores/logs';
+ import { checkConsent } from '@/utils/logger/consent';
+ import { posthog } from '@/utils/logger/posthog';
+ import uuid from '@/utils/uuid/uuid';
++import { useWatchSync } from '@/utils/watch/useWatchSync';
+ import { useCalendarWidgetFeed } from '@/utils/widgets/useCalendarWidgetFeed';
+ import { useCourseLiveActivity } from '@/utils/widgets/courseLiveActivity';
+ import { LogBox } from 'react-native';
+@@ -44,6 +45,7 @@ export default function RootLayout() {
+ 
+   useCalendarWidgetFeed();
+   useCourseLiveActivity();
++  useWatchSync();
+ 
+   const analyticsView = useMemo(() => {
+     if (segments.length === 0) return null;
+diff --git a/package.json b/package.json
+index e60901a..3cfe879 100644
+--- a/package.json
++++ b/package.json
+@@ -20,6 +20,7 @@
+   },
+   "dependencies": {
+     "@aramir/react-native-barcode": "^1.0.2",
++    "@bacons/apple-targets": "^5.0.0",
+     "@blockshub/blockscho": "^0.1.0",
+     "@blockshub/blocksdirecte": "^0.0.10-alpha",
+     "@blockshub/blocksrd": "^0.1.0",
