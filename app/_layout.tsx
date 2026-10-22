@@ -14,6 +14,7 @@ import { useNetworkStore } from '@/stores/logs';
 import { checkConsent } from '@/utils/logger/consent';
 import { posthog } from '@/utils/logger/posthog';
 import uuid from '@/utils/uuid/uuid';
+import { useWatchSync } from '@/utils/watch/useWatchSync';
 import { useCalendarWidgetFeed } from '@/utils/widgets/useCalendarWidgetFeed';
 import { useCourseLiveActivity } from '@/utils/widgets/courseLiveActivity';
 import { LogBox } from 'react-native';
@@ -44,6 +45,7 @@ export default function RootLayout() {
 
   useCalendarWidgetFeed();
   useCourseLiveActivity();
+  useWatchSync();
 
   const analyticsView = useMemo(() => {
     if (segments.length === 0) return null;

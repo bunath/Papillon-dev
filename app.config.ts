@@ -170,6 +170,7 @@ export default {
         },
       ],
       "@getpapillon/papillonkit",
+      "@bacons/apple-targets",
       "./plugins/with-ios-native-files",
       "./plugins/with-android-gradle-properties-newline",
     ],

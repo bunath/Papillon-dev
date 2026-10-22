@@ -1,0 +1,7 @@
+{
+  "name": "papillon-watch",
+  "platforms": ["apple"],
+  "apple": {
+    "modules": ["PapillonWatchModule"]
+  }
+}
